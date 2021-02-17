@@ -59,7 +59,9 @@ public class ToDo {
                 t.setDescription(parts[2]);
                 t.setDate(parts[3]);
                 t.setStatus(Boolean.parseBoolean(parts[4]));
-                String usersArray = parts[5];
+                t.setPriority(parts[5]);
+                t.setType(parts[6])
+                String usersArray = parts[7];
 					if (!usersArray.equals("X")) {
 						List<String> usersByTask = new ArrayList<String>();
 						String[] users = usersArray.split(",");
@@ -123,7 +125,7 @@ public class ToDo {
     
                 while (size > 0) {
                     taskRecord = tasks.get(i).getId() + "!" + tasks.get(i).getTitle() + "!" + tasks.get(i).getDescription() + "!"
-                            + tasks.get(i).getDate() + "!" + tasks.get(i).getStatus() + "!";
+                            + tasks.get(i).getDate() + "!" + tasks.get(i).getStatus() + "!" + tasks.get(i).getPriority() + "!" + tasks.getType();
                     if (tasks.get(i).getUsers() == null) {
                         taskRecord += "X" + "\n";
                     } else {
@@ -236,7 +238,7 @@ public class ToDo {
 
 
 
-        public boolean addTask(String title, String description, String date, String Status) {
+        public boolean addTask(String title, String description, String date, String Status, String priority, String type) {
             populateTasks();
             Boolean status = Boolean.parseBoolean(Status);
             for (int i = 0; i < tasks.size(); i++) {
@@ -251,6 +253,8 @@ public class ToDo {
             newTask.setStatus(status);
             newTask.setDate(date);
             newTask.setId(newId);
+            newTask.setPriority(priority);
+            newTask.setType(type);
             tasks.add(newTask);
             writeTasksToDB(tasks);
             return true;
@@ -269,7 +273,7 @@ public class ToDo {
             return false;
         }
     
-        public boolean updateTask(String Id, String newTitle, String newDescription, String newDate) {
+        public boolean updateTask(String Id, String newTitle, String newDescription, String newDate, String newPriority, String newType) {
             populateTasks();
             Integer id = Integer.valueOf(Id);
             for (int i = 0; i < tasks.size(); i++) {
@@ -282,6 +286,13 @@ public class ToDo {
                     }
                     if (!newDate.equals("none")) {
                         tasks.get(i).setDate(newDate);
+
+                    }
+                    if (!newPriority.equals("none")) {
+                        tasks.get(i).setPriority(newPriority);
+                    }
+                    if (!newType.equals("none")) {
+                        tasks.get(i).setType(newType);
 
                     }
                     writeTasksToDB(tasks);
@@ -365,7 +376,7 @@ public class ToDo {
             return false;
         }
     
-        public String getAlltasks() {
+        public String getAllTasks() {
             populateTasks();
             return tasksToJSON(tasks);
         }
@@ -435,19 +446,6 @@ public class ToDo {
             }
         }
     
-        public String getFreeTasks() {
-            populateTasks();
-            List<Task> tsks = new ArrayList<Task>();
-            for (int i = 0; i < tasks.size(); i++) {
-                if (tasks.get(i).getStatus() == true) {
-                    tsks.add(tasks.get(i));
-                }
-            }
-            return tasksToJSON(tsks);
-        }
-
-
-
 
         private String tasksToJSON(List<Task> tasks) {
             String json = "";
@@ -476,6 +474,52 @@ public class ToDo {
             }
             return json;
         }
+        
+        public String getTasksByStatus(Boolean status)
+        {
+            populateTasks();;
+            List <Task> tks = new ArrayList<Task>();
+            for (int i=0; i < tasks.size();i++){
+            if (tasks.get(i).getStatus() == status)
+            tks.add(tasks.get(i));
+            }  
+            return tasksToJSON(tks);
+         }
 
+        public String getTasksByDate(String date)
+        {
+            populateTasks();
+            List <Task> tks = new ArrayList<Task>();
+            for (int i=0; i < tasks.size();i++){
+            if (tasks.get(i).getDate().equals(date) )
+            tks.add(tasks.get(i));
+            }  
+            return tasksToJSON(tks);
+
+        }
+
+        public String getTasksByPriority(String priority)
+        {
+            populateTasks();
+            List <Task> tks = new ArrayList<Task>();
+            for (int i=0; i < tasks.size();i++){
+            if (tasks.get(i).getPriority().equals(priority) )
+            tks.add(tasks.get(i));
+            }  
+            return tasksToJSON(tks);
+
+        }
+
+        public String getTasksByType(String type)
+        {
+            populateTasks();
+            List <Task> tks = new ArrayList<Task>();
+            for (int i=0; i < tasks.size();i++){
+            if (tasks.get(i).getType().equals(type) )
+            tks.add(tasks.get(i));
+            }  
+            return tasksToJSON(tks);
+
+        }
 
 }

@@ -10,6 +10,8 @@ Task implements Serializable {
     private String date;
     private String description;
     private Boolean status;
+    private String priority;
+    private String type;
 
     private List<String> users;
 
@@ -53,5 +55,17 @@ Task implements Serializable {
     }
     public void setUsers(List<String> users) {
         this.users = users;
+    }
+   public List<String> getPriority() {
+        return this.priority;
+    }
+    public void setPriority(List<String> priority) {
+        this.priority = priority;
+    }
+    public List<String> getType() {
+        return this.type;
+    }
+    public void setType(List<String> type) {
+        this.type = type;
     }
 }
