@@ -56,16 +56,16 @@ Task implements Serializable {
     public void setUsers(List<String> users) {
         this.users = users;
     }
-   public List<String> getPriority() {
+   public String getPriority() {
         return this.priority;
     }
-    public void setPriority(List<String> priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
-    public List<String> getType() {
+    public String getType() {
         return this.type;
     }
-    public void setType(List<String> type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

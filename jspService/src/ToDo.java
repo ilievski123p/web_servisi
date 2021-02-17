@@ -60,7 +60,7 @@ public class ToDo {
                 t.setDate(parts[3]);
                 t.setStatus(Boolean.parseBoolean(parts[4]));
                 t.setPriority(parts[5]);
-                t.setType(parts[6])
+                t.setType(parts[6]);
                 String usersArray = parts[7];
 					if (!usersArray.equals("X")) {
 						List<String> usersByTask = new ArrayList<String>();
@@ -125,7 +125,7 @@ public class ToDo {
     
                 while (size > 0) {
                     taskRecord = tasks.get(i).getId() + "!" + tasks.get(i).getTitle() + "!" + tasks.get(i).getDescription() + "!"
-                            + tasks.get(i).getDate() + "!" + tasks.get(i).getStatus() + "!" + tasks.get(i).getPriority() + "!" + tasks.getType();
+                            + tasks.get(i).getDate() + "!" + tasks.get(i).getStatus() + "!" + tasks.get(i).getPriority() + "!" + tasks.get(i).getType();
                     if (tasks.get(i).getUsers() == null) {
                         taskRecord += "X" + "\n";
                     } else {
