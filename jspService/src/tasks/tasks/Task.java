@@ -2,9 +2,7 @@ package tasks;
 
 import java.io.Serializable;
 import java.util.List;
-import users.User;
-public class 
-Task implements Serializable {
+public class Task implements Serializable {
     private Integer id;
     private String title;
     private String date;

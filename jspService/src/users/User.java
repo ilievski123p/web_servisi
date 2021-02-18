@@ -2,7 +2,7 @@ package users;
 
 import java.util.List;
 import java.io.Serializable;
-import tasks.Task;
+
 public class User implements Serializable{
     private String username;
     private String password;
