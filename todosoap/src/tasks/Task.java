@@ -1,4 +1,4 @@
-package tasks;
+package src.tasks;
 
 import java.io.Serializable;
 import java.util.List;

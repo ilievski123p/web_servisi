@@ -1,8 +1,7 @@
-package users;
+package src.users;
 
 import java.util.List;
 import java.io.Serializable;
-import tasks.Task;
 
 public class User implements Serializable {
     private String username;
