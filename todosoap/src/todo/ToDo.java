@@ -108,49 +108,4 @@ public class ToDo {
 	
 	
 	
-	
-	
-
-  
-	public void getTasksByDate(String date) {
-		if (!date.equals("") && !century.equals("20") && !century.equals("19")) {
-			return;
-		}
-		List<Book> bks = new ArrayList<Book>();
-		if (century.equals("21")) {
-			for (int i=0; i<books.size(); i++) {
-				if (books.get(i).getYear() >= 2000) {
-					bks.add(books.get(i));
-				}
-			}
-		} else if (century.equals("20")) {
-			for (int i=0; i<books.size(); i++) {
-				if (books.get(i).getYear() >= 1900 && books.get(i).getYear() < 2000) {
-					bks.add(books.get(i));
-				}
-			}
-		} else {
-			for (int i=0; i<books.size(); i++) {
-				if (books.get(i).getYear() >= 1800 && books.get(i).getYear() < 1900) {
-					bks.add(books.get(i));
-				}
-			}
-		}
-		for (int j=0; j<bks.size(); j++) {
-			System.out.println(bks.get(j).getTitle() + ", " + bks.get(j).getAuthor() + ", " + bks.get(j).getYear());
-		}
-	}
-
-	public void getBooksByGenre(String genre) {
-		List<Book> bks = new ArrayList<Book>();
-		for (int i=0; i<books.size(); i++) {
-			if (books.get(i).getGenre().equals(genre)) {
-				bks.add(books.get(i));
-			}
-		}
-		for (int j=0; j<bks.size(); j++) {
-			System.out.println(bks.get(j).getTitle() + ", " + bks.get(j).getAuthor() + ", " + bks.get(j).getGenre());
-		}
-    }
-    
     
