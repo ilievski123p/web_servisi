@@ -1,4 +1,4 @@
-package ToDo;
+package todo;
 
 import java.io.IOException;
 import java.io.FileOutputStream;

@@ -2,15 +2,15 @@ package src.todo;
 
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import users.User;
-import books.Book;
+import src.users.User;
+import src.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.List;
     @WebService
 public class ToDo {
   
-    private List<Book> tasks;
+    private List<Task> tasks;
     private List<User> users;
     
     public ToDo() {
@@ -19,28 +19,28 @@ public class ToDo {
         task1.setId(1);
         task1.setTitle("Task1");
         task1.setDescription("Go to the store");
-        task1.setDate(1.3.2021);
+        task1.setDate("1.3.2021");
         task1.setStatus(false);
         tasks.add(task1);
 		Task task2 = new Task();
         task2.setId(2);
         task2.setTitle("Task2");
         task2.setDescription("Go to the school");
-        task2.setDate(10.3.2021);
+        task2.setDate("10.3.2021");
         task2.setStatus(false);
         tasks.add(task2);
 		Task task3 = new Task();
         task3.setId(3);
         task3.setTitle("Task3");
         task3.setDescription("Finish homework");
-        task3.setDate(15.3.2021);
+        task3.setDate("15.3.2011");
         task3.setStatus(false);
         tasks.add(task3);
 		Task task4 = new Task();
         task4.setId(4);
         task4.setTitle("Task4");
         task4.setDescription("Call my boss");
-        task4.setDate(15.3.2021);
+        task4.setDate("15.3.2021");
         task4.setStatus(false);
         tasks.add(task4);
 		
@@ -103,7 +103,7 @@ public class ToDo {
 	
 	
 	
-	
+}
 	
 	
 	
