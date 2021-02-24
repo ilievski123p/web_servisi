@@ -101,6 +101,39 @@ public class ToDo {
 		}
 	}
 	
+	//funkcija za zemanje na taskovi po datum
+	public void getTasksByDate(String date) {
+		
+		List<Task> tsks = new ArrayList<Task>();
+		  for (int i=0; i<tasks.size(); i++) {
+				if (tasks.get(i).getDate() == date) {
+					tsks.add(tasks.get(i));
+				}
+			}
+		
+		for (int j=0; j<tsks.size(); j++) {
+			System.out.println(tsks.get(j).getTitle() );
+			
+		}
+	}
+	
+	//funkcija za zemanje na taskovi po status
+	public void getTasksByStatus(String status) {
+		
+		List<Task> taskss = new ArrayList<Task>();
+		  for (int i=0; i<tasks.size(); i++) {
+				if (tasks.get(i).getStatus() == status) {
+					taskss.add(tasks.get(i));
+				}
+			}
+		
+		for (int j=0; j<taskss.size(); j++) {
+			System.out.println(taskss.get(j).getTitle() );
+			
+		}
+	}
+	//funkcija za zemanje na taskovi po prioritet?
+	
 	
 	
 }
